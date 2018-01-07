@@ -12,6 +12,8 @@ We use two *Tessel 2* boards to build up the environment monitoring system and t
 - Receiving calls from your pets (press the button and call)
 - Feeding your pets with automatic food dispenser (remotely controllable)
 
+To learn more about Meow-Meow, please visit our [demo page](https://salu133445.github.io/meow-meow/).
+
 ## Implementation
 
 Implemented in Node.js and HTML/CSS with Tessel 2 CLI and Firebase API.
