@@ -4,7 +4,8 @@
 
 The automatic pet food dispenser consists of a pet food container, a spiral dispenser and a pet food plate. The spiral dispenser is connected to the servo motor. Once the servo motor is triggered and start rotating, the spiral dispenser will push the pet food out.
 
-<img src="figs/feeder.png" alt="feeder" style="max-width:400px; display:block; margin:auto">
+<img src="figs/feeder.png" alt="feeder" style="max-height:300px; display:block; margin:auto">
+<p align="center">Closeup of the automatic pet food dispenser</p>
 
 ## How do we use Firebase API to establish robust connection?
 

@@ -15,7 +15,7 @@
 - show date and time information of the messages
 
 <img src="figs/user_interface_closeup.png" alt="user_interface_closeup" style="max-width:400px; display:block; margin:auto">
-<p align="center">User Interface</p>
+<p align="center">Message list and climate information bar</p>
 
 ## Buttons
 

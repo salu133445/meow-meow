@@ -1,6 +1,6 @@
 # Environment Monitoring System
 
-<img src="figs/system_diagram_monitoring.png" alt="system_diagram_monitoring" style="max-height:300px; display:block; margin:auto">
+<img src="figs/system_diagram_monitoring.png" alt="system_diagram_monitoring" style="max-height:200px; display:block; margin:auto">
 <p align="center">System diagram of the environment monitoring system</p>
 
 ## Climate module
