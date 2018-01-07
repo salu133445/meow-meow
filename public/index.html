@@ -1,0 +1,273 @@
+<!doctype html>
+<meta charset="utf-8">
+<html>
+	<head>
+		<title> Meow Meow</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font: 12px Helvetica, Arial;
+				background-color: #F5F5F5;
+			}
+
+			button {
+				background-color: #3498db;
+				border: none;
+				border-radius: 2px;
+				color: white;
+			}
+			.header {
+				color: #FFFFFF;
+				background-color: #263238;
+				height: 30px;
+			}
+
+			#header-container {
+				background-color: #263238;
+				width: 100%;
+			}
+			#chatroom-header {
+				font: 16px Georgia, Times New Roman;
+				font-weight: bold;
+				float: left;
+				padding: 5px 5px 5px 10px;
+			}
+			#climate {
+				width: 150px;
+				text-align: right;
+				float: right; 
+				padding: 3.5px 10px 3.5px 3.5px;
+			}
+			#camera-div {
+				background-color: #F5F5F5;
+				border-radius: 5px;
+				float: left;
+				height: 100vh;
+				overflow: auto;
+				overflow-x: hidden;
+				width: 860px;
+			}
+			#msg-div {
+				background-color: #E8EBED;
+				border-radius: 5px;
+				float: right;
+				padding: 5px;
+				width: calc(100% - 860px);				
+			}
+			#camera {
+				height: 645px;
+				width: 860px;
+			}
+			#feed-button {
+				position: fixed;
+				bottom: 5px;
+				right: 0;
+				padding: 4px;
+			}		
+			#light-button {
+				position: fixed;
+				bottom: 5px;
+				right: 200px;
+				padding: 4px;
+			}		
+			#fan-button {
+				position: fixed;
+				bottom: 5px;
+				left: 865px;
+				padding: 4px;
+			}		
+			#left-button {
+				position: fixed;
+				bottom: 5px;
+				left: 5px;
+				padding: 4px;
+			}		
+			#paw-button {
+				position: fixed;
+				bottom: 5px;
+				left: 380px;
+				padding: 4px;
+			}		
+			#right-button {
+				position: fixed;
+				bottom: 5px;
+				left: 755px;
+				padding: 4px;
+			}
+			.msg {
+				background: #B3E5FC;
+				list-style-type: none;
+			}
+			.msg-time {
+				background: #D9EDF7;
+				text-align: right;
+				list-style-type: none;
+			}
+		</style>
+<!--		<link rel="stylesheet" type="text/css" href="style.css"> -->
+	</head>
+	<body>
+		<div class="header" id="header-container">
+			<div class="header" id="chatroom-header">
+		        <h4>Meow Meow&emsp;<span style="font-size: 70%; font-weight: normal;">by DongTsu and ATeng</span></h4>
+			</div>
+			<div class="header" id="climate">
+			    <h5 id="temp">Temperature: 25 &deg;C</h5>
+			    <h5 id="humid">Humidity: 50 %RH</h5>
+    		</div>
+		</div>
+		<div id="body-container">
+			<div id="camera-div">
+				<img src="/stream" id="camera" alt="meow camera view"> 
+				<button type="button"><img src="./pictures/left.png" id="left-button" width=100 px height=100 px /></button>
+				<button type="button"><img src="./pictures/paw.png" id="paw-button" width=100 px height=100 px /></button>
+				<button type="button"><img src="./pictures/right.png" id="right-button" width=100 px height=100 px /></button>
+			</div>
+			<div id="msg-div">
+				<ul id="msg-div-ul"></ul>
+				<button type="button"><img src="./pictures/feed.png" id="feed-button" width=100 px height=100 px /></button>
+				<button type="button"><img src="./pictures/light.png" id="light-button" width=100 px height=100 px /></button>
+				<button type="button"><img src="./pictures/fan.png" id="fan-button" width=100 px height=100 px /></button>
+			</div> 
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+		<script>
+			$(function () {
+				var config = {
+                  apiKey: "AIzaSyBzJHHk_k4P21JJV5d2xUO6POt7j26UVcE",
+                  authDomain: "meow-a16ea.firebaseapp.com",
+                  databaseURL: "https://meow-a16ea.firebaseio.com",
+                };
+                
+				firebase.initializeApp(config);
+                
+				firebase.database().ref('/climate').on('value', function(snapshot) {
+					var temp = snapshot.val().temperature;
+					var humid = snapshot.val().humidity;
+                    document.getElementById("temp").innerHTML = "Temperature:" + temp.toFixed(1) + "&deg;C";
+                    document.getElementById("humid").innerHTML = "Humidity:" + humid.toFixed(0) + "%RH";
+                });
+				
+				firebase.database().ref('/climate/hot').on('value', function(snapshot) {
+					if(snapshot.val()){					
+						showLocalTime();
+						showMsg('It is really hot now... Would you like to turn on the fan?');
+					};
+				});
+				
+				firebase.database().ref('/serverStatus').on('value', function(snapshot) {
+					if(snapshot.val().night){					
+						showLocalTime();
+						showMsg('It is 6pm already. The light bulb has been turned on automatically.');
+					};
+				});
+				
+				firebase.database().ref('/relay/status').on('value', function(snapshot) {
+					var fanImg = document.getElementById("fan-button");
+					var lightImg = document.getElementById("light-button");
+					if(snapshot.val().fanIsOn) {						
+						fanImg.src = "./pictures/fan_on.png";
+					} else {						
+						fanImg.src = "./pictures/fan.png";
+					}
+					if(snapshot.val().lightIsOn) {						
+						lightImg.src = "./pictures/light_on.png";
+					} else {						
+						lightImg.src = "./pictures/light.png";
+					}
+                });	
+			
+				// open connection
+				var socket = io();
+				
+				// send meow request to the server when button clicked
+				$( "#left-button" ).click(function() {
+					socket.emit('camera left', {});
+				});					
+				$( "#paw-button" ).click(function() {
+					socket.emit('call meow', {});
+				});
+				$( "#right-button" ).click(function() {
+					socket.emit('camera right', {});
+				});
+				$( "#fan-button" ).click(function() {
+					firebase.database().ref('/relay/status').once('value').then(function(snapshot) {
+						firebase.database().ref('/relay/command').update({
+							switchFan: (!snapshot.val().fanIsOn)
+						});
+					});
+				});
+				$( "#light-button" ).click(function() {
+					firebase.database().ref('/relay/status').once('value').then(function(snapshot) {
+						firebase.database().ref('/relay/command').update({
+							switchLight: (!snapshot.val().lightIsOn)
+						});
+					});
+				});
+				$( "#feed-button" ).click(function() {
+					socket.emit('feed', {});
+				});
+
+				socket.on('meow calling', function(data) {						
+					showLocalTime();
+					showMsg('Your cat is calling you...');
+					scrollToBottom("msg-div");
+					//alert('Your cat is calling you...')
+				});
+/*				
+				socket.on('night', function(data) {						
+					showTime(data.year, data.month, data.date, data.hour, data.minute);
+					showMsg('It is 6pm already. The light bulb has been turned on automatically.');
+					scrollToBottom("msg-div");
+				});
+*/				
+			});
+			
+			function showLocalTime() {
+				var date = new Date();
+				var newLi = document.createElement("li");
+				newLi.className += "msg-time";
+				var month = date.getMonth() + 1;
+				newLi.innerHTML = date.getFullYear() + '/' + month + '/' + date.getDate() + 
+								  ' ' + date.getHours() + ':' + date.getMinutes();
+				document.getElementById("msg-div-ul").appendChild(newLi);
+			}
+			
+			function showTime(year, month, date, hour, minute) {
+				var newLi = document.createElement("li");
+				newLi.className += "msg-time";
+				newLi.innerHTML = year + '/' + month + '/' + date + ' ' + hour + ':' + minute;
+				document.getElementById("msg-div-ul").appendChild(newLi);
+			}
+			
+			function showMsg(content) {
+				var newLi = document.createElement("li");
+				newLi.className += "msg";
+				newLi.innerHTML = content;
+				document.getElementById("msg-div-ul").appendChild(newLi);
+			}
+			
+			function scrollToBottom(divId) {
+				var msgDiv = document.getElementById(divId);
+				msgDiv.scrollTop = msgDiv.scrollHeight;
+			}
+			/*
+			function isTimeClose(data, prevSocketInfo) {
+				var sameYear = (prevSocketInfo.year == data.year) ;
+				var sameMonth = (prevSocketInfo.month == data.month);
+				var sameDate = (prevSocketInfo.date == data.date);
+				var exactSameDate = sameYear * sameMonth * sameDate;
+				var closeTime = ( (prevSocketInfo.hour*60 + prevSocketInfo.minute) + 5 > (data.hour*60 + data.minute) );
+				return ( !(exactSameDate && closeTime) );
+			}
+			*/
+		</script>
+	</body>
+</html>

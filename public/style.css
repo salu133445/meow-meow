@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font: 12px Helvetica, Arial;
+    background-color: #F5F5F5;
+}
+form {
+    background: #000;
+    bottom: 0;
+    padding: 6px 10px 6px 10px;
+    position: fixed;
+    width: 100%;
+}
+button {
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+.header {
+    color: #FFFFFF;
+    background-color: #263238;
+    height: 30px;
+}
+.user-or-time-change {
+    background: #CFD8DC;
+    color: #455A64;
+    text-align: center;
+}
+.msg-div-mine {
+    background: #B3E5FC;
+}
+.msg-div-others {
+    background: #E1F5FE;
+}
+#header-container {
+    background-color: #263238;
+    width: 100%;
+}
+#chatroom-header {
+    font: 16px Georgia, Times New Roman;
+    font-weight: bold;
+    float: left;
+    padding: 5px 5px 5px 10px;
+}
+#climate {
+    width: 120px;
+    text-align: right;
+    float: right;
+    padding: 3.5px 10px 3.5px 3.5px;
+}
+#msg-div {
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    float: left;
+    height: 80vh;
+    overflow: auto;
+    overflow-x: hidden;
+	 width: calc(100% - 320px);
+}
+#msg-div div {
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+#msg-div ul li {
+    color: #000000;
+    list-style-type: none;
+    padding-left: 10px;
+}
+#user-list-div {
+    background-color: #FFEBEE;
+    border-radius: 5px;
+    float: right;
+    padding: 5px;
+    width: 320px;
+}
+#user-list-header {
+    color: #455A64;
+}
+#user-list-ul {
+    margin-left: 20px;
+}
+#user-list-ul li {
+    color: #607D8B;
+}
+#camera-div {
+    position: fixed;
+    bottom: 36px;
+    right: 0;
+}
+#camera {
+    height: 240px;
+    width: 320px;
+}
+#meow-button {
+    position: fixed;
+    bottom: 252px;
+    right: 0;
+    padding: 4px;
+}
+#send-button {
+    padding: 5px;
+    width: 50px;
+    float: right;
+}
+#msg-input {
+    border: 0;
+    border-radius: 2px;
+    padding: 5px;
+    margin-right: 10px;
+    float: left;
+    width: calc(100% - 60px);
+}
