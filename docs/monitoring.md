@@ -6,7 +6,7 @@
 ## Climate module
 
 - monitor the temperature and humidity
-- update climate/temperature and climate/humidity in Firebase realtime database
+- update climate/temperature and climate/humidity in Firebase real-time database
 - update climate/hot to true when the temperature rises over 28oC and update climate/hot to false when the temperature drops below 25 oC
 
 ## Relay module

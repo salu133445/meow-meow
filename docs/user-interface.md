@@ -2,7 +2,7 @@
 
 ## Firebase API
 
-- connect to Firebase realtime database
+- connect to Firebase real-time database
 - fetch climate data updated by the environmental monitoring system
 - acquire the state of relay module of the environmental monitoring system
 - send relay control request when the fan/light buttons are clicked(will be elaborated in Sec. 5)
