@@ -14,6 +14,8 @@ We use two *Tessel 2* boards to build up the environment monitoring system and t
 
 To learn more about Meow-Meow, please visit our [demo page](https://salu133445.github.io/meow-meow/).
 
+<img src="docs/figs/system.jpg" alt="system" style="max-height:300px; display:block; margin:auto">
+
 ## Implementation
 
 Implemented in Node.js and HTML/CSS with Tessel 2 CLI and Firebase API.
