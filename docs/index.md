@@ -1,4 +1,4 @@
-> This project is dedicated to our beloved Meow Meow (2006--2022).
+> This project is dedicated to our beloved Meow Meow (2005--2022).
 >
 > ![Meow Meow](assets/images/meow-meow.jpg){:style="max-width: 200px;"}
 
