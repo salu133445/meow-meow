@@ -1,3 +1,13 @@
 theme: jekyll-theme-minimal
-title: Meow-Meow
-description: A Smart Pet Interaction System 
+title: Meow Meow
+description: A Smart Pet Interaction System
+icons:
+  homepage: fa-solid fa-globe-asia
+  video: fa-brands fa-youtube
+  paper: fa-solid fa-file-pdf
+  slides: fa-solid fa-file-pdf
+  poster: fa-solid fa-file-pdf
+  arxiv: fa-solid fa-archive
+  code: fa-brands fa-github
+  documentation: fa-solid fa-book
+  reviews: fa-solid fa-comments

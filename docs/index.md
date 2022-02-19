@@ -1,16 +1,7 @@
-*Meow Meow*, an intelligent pet interaction system, allows you to remotely
-monitor the temperature and humidity condition, control the light and fan and
-on top of that, interact with your pets. We use two *Tessel 2* boards to build
-up the environment monitoring system and the interactive feeding system (one
-board for each system).
+> This project is dedicated to our beloved Meow Meow (2006--2022).
+>
+> ![Meow Meow](assets/images/meow-meow.jpg){:style="max-width: 200px;"}
 
-**Features**
+_Meow Meow_ is a smart pet interaction system that allows you to remotely interact with your pet(s) while monitoring the environment. We implement the system in Node.js and HTML/CSS with Tessel 2 boards, Socket.IO and Firebase. This is our final project for _Embedded Systems Labs_ (EE 3021) at National Taiwan University in Spring 2017.
 
-- Stream real-time video
-- Monitor temperature and humidity
-- Call your pets (with prerecorded audio)
-- Receive calls from your pets (press the button and call)
-- Feed your pets with automatic food dispenser (remotely controllable)
-- Provide web user interface
-
-<img src="figs/system.jpg" alt="system" style="max-height:300px; display:block; margin:auto">
+{% include video_player.html id="AwxW-ts9ne0" %}

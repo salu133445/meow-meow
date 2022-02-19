@@ -1,42 +1,46 @@
 # User Interface
 
+![User interface](assets/images/user-interface.jpg)
+
+{:.caption}
+User interface
+
 ## Firebase API
 
-- connect to a *Firebase* real-time database
-- fetch climate data updated by the environmental monitoring system
-- acquire the state of relay module of the environmental monitoring system
-- send relay control request when the fan/light buttons are clicked (see
+- Connect to a _Firebase_ real-time database
+- Fetch climate data updated by the environmental monitoring system
+- Acquire the state of relay module of the environmental monitoring system
+- Send relay control request when the fan/light buttons are clicked (see
   [here](implementation) for details)
 
 ## Message List
 
-- show messages when your pet calls you by pressing the button
-- show messages when the temperature rises over 28&deg;C
-- show messages when the light bulb has been automatically turned on at night
-- show date and time information of the messages
+- Show messages when your pet calls you by pressing the button
+- Show messages when the temperature rises over 28&deg;C
+- Show messages when the light bulb has been automatically turned on at night
+- Show date and time information of the messages
 
-<img src="figs/user_interface_closeup.png" alt="user_interface_closeup" style="max-width:400px; display:block; margin:auto">
-<p class="caption" align="center">Message list and climate information bar</p>
+![User interface closeup](assets/images/user-interface-closeup.png)
+
+{:.caption}
+Message list and climate information bar
 
 ## Buttons
 
 - Camera control
-  - trigger the servo module
-  - adjust the direction (left/right) of camera
+  - Trigger the servo module
+  - Adjust the direction (left/right) of camera
 - Call meow
-  - trigger the audio module
-  - your pets will hear your prerecorded voice
+  - Trigger the audio module
+  - Your pets will hear your prerecorded voice
 - Fan switch
-  - trigger the relay module
-  - turn on/off the fan
+  - Trigger the relay module
+  - Turn on/off the fan
 - Light switch
-  - trigger the relay module
-  - turn on/off the light
+  - Trigger the relay module
+  - Turn on/off the light
 - Feed button
-  - trigger the servo module
-  - activate the feeding system
-  - trigger the audio module
-  - your pets will hear your prerecorded voice
-
-<img src="figs/user_interface.jpg" alt="user_interface" style="max-height:200px; display:block; margin:auto">
-<p class="caption" align="center">User interface</p>
+  - Trigger the servo module
+  - Activate the feeding system
+  - Trigger the audio module
+  - Your pets will hear your prerecorded voice

@@ -1,4 +1,4 @@
-# Implementation Details
+# Implementation
 
 ## How does the automatic pet food dispenser work?
 
@@ -7,8 +7,10 @@ dispenser and a pet food plate. The spiral dispenser is connected to the servo
 motor. Once the servo motor is triggered and start rotating, the spiral
 dispenser will push the pet food out.
 
-<img src="figs/feeder.png" alt="feeder" style="max-height:300px; display:block; margin:auto">
-<p class="caption" align="center">Closeup of the automatic pet food dispenser</p>
+![Feeder](assets/images/feeder.png){:style="max-width: 400px;"}
+
+{:.caption}
+Automatic pet food dispenser
 
 ## How do we use Firebase API to establish robust connection?
 

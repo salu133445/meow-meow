@@ -1,0 +1,13 @@
+/*
+ * cwTeXKai (Chinese Traditional) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'cwTeXKai';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../webfonts/cwTeXKai-zhonly.eot");
+  src: url("../webfonts/cwTeXKai-zhonly.eot?#iefix") format('embedded-opentype'),
+       url("../webfonts/cwTeXKai-zhonly.woff2") format('woff2'),
+       url("../webfonts/cwTeXKai-zhonly.woff") format('woff'),
+       url("../webfonts/cwTeXKai-zhonly.ttf") format('truetype');
+}
