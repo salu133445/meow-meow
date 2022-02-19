@@ -8,6 +8,8 @@ _Meow Meow_ is a smart pet interaction system that allows you to remotely intera
 
 <img src="docs/assets/images/system.jpg" alt="System" width="600">
 
+_For more information, please visit our project [website](https://salu133445.github.io/meow-meow/)._
+
 ## Features
 
 - Web user interface
@@ -26,5 +28,3 @@ _Meow Meow_ is a smart pet interaction system that allows you to remotely intera
 - USB audio module
 - USB camera module
 - GPIO button
-
-> For more information, please visit our project [website](https://salu133445.github.io/meow-meow/).
